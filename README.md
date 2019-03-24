@@ -1,10 +1,12 @@
-# HKU-Engg1340-Group6
+HKU-Engg1340-Group6
+-------------------
 Group project for HKU Engg1340 programming course.
+![](https://s3-ap-southeast-1.amazonaws.com/hkuengg1340project/slider1-2.jpg)
 
 Problem Statement:flashlight:
 -----------------
 
-testtest
+
 
 Problem Setting:pushpin:
 ---------------
