@@ -27,5 +27,5 @@ The project is capable of the following features: (to be continued...)
 Authors:eyes:
 ----------
 
-* **Ruichen Ma** <<xxx@hku.hk>>
+* **Ruichen Ma** <<alexmrc@hku.hk>>
 * **Dantong Li** <<ldtzyj@hku.hk>>
