@@ -1,6 +1,7 @@
 HKU-Engg1340-Group6
 -------------------
-Group project for **HKU Engg1340** programming course.
+> Good management consists in showing average people how to do the work of superior people. 
+> - John D. Rockefeller
 
 Problem Statement:flashlight:
 -----------------
