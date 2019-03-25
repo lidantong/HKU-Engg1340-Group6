@@ -1,6 +1,11 @@
 HKU-Engg1340-Group6
 -------------------
 
+![](https://img.shields.io/github/release/lidantong/HKU-Engg1340-Group6.svg)
+![](http://progressed.io/bar/15?title=completed)
+![](https://img.shields.io/badge/language-C%2B%2B-green.svg)
+
+
 > Good management consists in showing average people how to do the work of superior people.                                   
 > John D. Rockefeller
 
