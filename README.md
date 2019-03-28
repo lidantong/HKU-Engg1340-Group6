@@ -12,15 +12,11 @@ HKU-Engg1340-Group6
 Problem Statement:flashlight:
 -----------------
 
-This C++ project is aiming at helping **grocery stores** and the like to manage the waiting list of customers.
+This C++ project is aiming at helping **grocery stores** and the like to manage the waiting list of customers. 
 
-**In reality**, cashiers in grocery stores are usually crowded with people carrying various types and amounts of groceries. We assume that:
-- The store holds **no cashier** at first and each new one will cost a certain amount of money.
-- Each customer carries different items waiting to checkout with equal "patience" -- he or she is willing to wait for a certain amount of time, or will just leave without any purchase.
-- Groceries have different prices and the total number of items determines the time of a single checkout procedure.
-- The store has the right to adjust the order of the waiting line.
+In reality, the management of cashiers is crucial to the total revenue and customers' experience. Though the customers are supposed to wait in line for check-out, the number of cashiers and how to arrange the queue also count for total efficiency.  If there are too few cashiers, customers may get impatient and leave without finishing their purchase, while too many cashiers are a waste of human resource. Thus, an assisting program in function of arranging the cashier is useful and necessary for a grocery store.
 
-The goal of our project is to provide **optimised plans** of queuing to obtain a maximum profit of a given grocery store as well as generate grocery stores with specific or random parameters.
+This project applies to a specific assumpted situation: Customers each with respective numbers and types of groceries are waiting in order. The total time of a single check-out is only determined by the number of items. The program collects data of the expanse of a cashier and customers, including their names, number and price of each grocery, in a given format for manual input or file input. Then, it processes the optimized allocation plan as well as the total revenue and displays on the screen or saves the file.
 
 Feature Support:gift:
 ---------------
