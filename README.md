@@ -7,6 +7,7 @@ HKU-Engg1340-Group6
 
 
 > Good management consists of showing average people how to do the work of superior people.
+>
 > John D. Rockefeller
 
 Problem Statement:flashlight:
