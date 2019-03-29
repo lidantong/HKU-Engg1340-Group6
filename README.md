@@ -3,7 +3,8 @@ HKU-Engg1340-Group6
 
 ![](https://img.shields.io/github/release/lidantong/HKU-Engg1340-Group6.svg)
 ![](http://progressed.io/bar/15?title=completed)
-![](https://img.shields.io/badge/language-C%2B%2B-green.svg)
+![](https://img.shields.io/badge/Language-C%2B%2B11-green.svg)
+
 
 
 > Good management consists of showing average people how to do the work of superior people.
@@ -13,7 +14,7 @@ HKU-Engg1340-Group6
 Problem Statement:flashlight:
 -----------------
 
-This C++ project is aiming at helping **grocery stores** and the like to manage the waiting list of customers. 
+This C++ project is aiming at helping **grocery stores** and the like to manage the waiting list of customers.
 
 In reality, the management of cashiers is crucial to the total revenue and customers' experience. Though the customers are supposed to wait in line for check-out, the number of cashiers and how to arrange the queue also count for total efficiency.  If there are too few cashiers, customers may get impatient and leave without finishing their purchase, while too many cashiers are a waste of human resource. Thus, an assisting program in function of arranging the cashier is useful and necessary for a grocery store.
 
