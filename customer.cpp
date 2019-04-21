@@ -16,7 +16,7 @@ class customer
     grocery *item;
 
     public:
-
+    friend bool cmp(const customer *&a, const customer *&b);
     customer();
 };
 
