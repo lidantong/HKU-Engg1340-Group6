@@ -2,8 +2,8 @@
 
 #define GROCERY_H
 
-pair <int, int> point
- 
+pair <int, int> point;
+
 #include <iostream>
 #include <string>
 
@@ -11,53 +11,51 @@ using namespace std;
 
 /***************************************************
 
-Class grocery
+   Class grocery
 
 ***************************************************/
 
-typedef class grocery 
+typedef class grocery
 {
-    private:
+private:
 
 /***************************************************
 
-name: the name of each grocery
-val: the value of a single item
-t: time needed to produce a single purchase
-cnt: number of groceries purchased
+   name: the name of each grocery
+   price: the price of a single item
+   time: time needed to produce a single purchase
+   count: number of groceries purchased
 
 ***************************************************/
 
-    int cnt;
-    double t;
-    double val;
-    string name;
+int count;
+double time;
+double price;
+string name;
 
-    public:
+public:
 
 /***************************************************
 
-Initializing grocery
+   Initializing grocery
 
 ***************************************************/
 
-    grocery()
-    {
-        cnt = 0;
-        t = val = 0;
-        name = "";
-    }
+grocery()
+{
+	count = 0;
+	time = price = 0;
+	name = "";
+}
 
 /***************************************************
 
-read(): read parameters
+   read(): read parameters
 
 ***************************************************/
 
-    void read()
-    {
-        cin >> name >> cnt >> t >> val;
-    }
+void readFromFile(string);
+void readFromUser();
 
 } g;
 
