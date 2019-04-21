@@ -10,18 +10,18 @@
 
 using namespace std;
 
-typedef class customer
+class customer
 {
     private:
     
     string name;
     double time;
-    vector <g> item;
+    grocery *item;
 
     public:
 
-
-
-} c;
+    customer();
+    void read();
+};
 
 #endif

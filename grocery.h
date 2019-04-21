@@ -1,8 +1,6 @@
 #ifndef GROCERY_H
 
 #define GROCERY_H
-
-pair <int, int> point
  
 #include <iostream>
 #include <string>
@@ -15,7 +13,7 @@ Class grocery
 
 ***************************************************/
 
-typedef class grocery 
+class grocery 
 {
     private:
 
@@ -41,24 +39,14 @@ Initializing grocery
 
 ***************************************************/
 
-    grocery()
-    {
-        cnt = 0;
-        t = val = 0;
-        name = "";
-    }
-
+    grocery();
 /***************************************************
 
 read(): read parameters
 
 ***************************************************/
 
-    void read()
-    {
-        cin >> name >> cnt >> t >> val;
-    }
-
-} g;
+    void read();
+};
 
 #endif
