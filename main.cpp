@@ -48,3 +48,4 @@ int main()
     print_result(max_counter, revenue);
 
 }
+
