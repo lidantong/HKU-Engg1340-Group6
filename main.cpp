@@ -2,7 +2,6 @@
 
 #include <stdio.h>
 
-grocery g;
 
 int main()
 {
