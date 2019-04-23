@@ -12,22 +12,22 @@ bool cmp(const customer *&a, const customer *&b);
 #include <vector>
 #include <sstream>
 #include "grocery.h"
-#include "customer.h"
 
 using namespace std;
 
 class customer
 {
-private:
+	private:
 
-string name;
-double time;
-vector<grocery> items_vec;
+		string name;
+		double time;
+		vector<grocery> items_vec;
 
-public:
-void read(vector<istringstream>);
-friend bool cmp(const customer *&a, const customer *&b);
-customer();
+	public:
+
+		void read(vector<istringstream>);
+		friend bool cmp(const customer *&a, const customer *&b);
+		customer();
 };
 
 customer :: customer()
@@ -42,13 +42,13 @@ bool cmp(const customer *&a, const customer *&b)
 	return a->time < b->time;
 }
 
-void customer::read (vector<istringstream> info_string_vec) {
-	vector<grocery> items;
+void customer::read (vector<istringstream> info_string_vec)
+{
+	// Use the istringstream vector to initialise list of grocery object and build the items vector of a customer
 	for (auto &info_string: info_string_vec) {
 		grocery item(&info_string);
-		items.push_back(item);
+		items_vec.push_back(item);
 	}
-	items_vec = items;
 }
 
 // /////////////////////////////////////////////////////////////////////////////////////////////

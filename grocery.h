@@ -5,7 +5,7 @@
 
 class grocery;
 // /////////////////////////////////////////////////////////////////////////////////////////////
-#include "grocery.h"
+
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -20,7 +20,7 @@ using namespace std;
 
 class grocery
 {
-private:
+   private:
 
 /***************************************************
 
@@ -31,29 +31,26 @@ private:
 
 ***************************************************/
 
-int cnt;
-double t;
-double val;
-string name;
+      int cnt;
+      double t;
+      double val;
+      string name;
 
-public:
+   public:
 
 /***************************************************
 
    Initializing grocery
 
 ***************************************************/
-grocery(istringstream *info_string);
+      grocery(istringstream *p_info_string);
+
 };
 
 
-grocery :: grocery(istringstream *info_string)
+grocery :: grocery(istringstream *p_info_string)
 {
-	cnt = 0;
-	t = val = 0;
-	name.clear();
-	*info_string >> name >> val >> t >> cnt;
-
+	*p_info_string >> name >> val >> t >> cnt;
 }
 // /////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -9,31 +9,35 @@
 #include <iomanip>
 using namespace std;
 
-float f(float x, float y, float z) {
+float f(float x, float y, float z) 
+{
 	float a = x * x + 9.0f / 4.0f * y * y + z * z - 1;
 	return a * a * a - x * x *z * z * z - 9.0f / 80.0f * y *y *z * z * z;
 }
-float h(float x, float z) {
+
+float h(float x, float z) 
+{
 	for (float y = 1.0f; y >= 0.0f; y-=0.001f)
 		if (f(x, y, z) <= 0.0f)
 			return y;
 	return 0.0f;
 }
 
-void input_an_item (string &name, string &time, string &price, string &count) {
+void input_an_item (string &name, string &t, string &price, string &count) 
+{
 	cout << "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" << endl << endl;
 
 	cout << "Please type in the information of the grocerry good: " << endl << endl;
 	cout << "--------------------------------------------------------------------------------" << endl << endl;
 
-	cout << "=> Good's name: ";
-	getline(cin, name);
+	cout << "=> Good's name (one_word): ";
+	cin >> name;
 	cout << endl << endl;
 
 	cout << "--------------------------------------------------------------------------------" << endl << endl;
 
 	cout << "=> The time one item takes when checking out (unit: second): ";
-	cin >> time;
+	cin >> t;
 	cout << endl << endl;
 
 	cout << "--------------------------------------------------------------------------------" << endl << endl;
@@ -51,66 +55,82 @@ void input_an_item (string &name, string &time, string &price, string &count) {
 
 }
 
-void add_a_customer (vector<customer> customer_vec) {
+void add_a_customer (vector<customer> customer_vec) 
+{
 	// customer new_customer();
 	vector<istringstream> info_string_vec;
 	cout << "How would you like to initialise a new customer ?" << endl;
 	cout << "'manual' / 'file' ? : ";
 
+	// Flag of sources: manual or file
 	string command;
 	cin >> command;
+
+	// After getting the flag of the source, the following branch produces a well-prepared istringstream vector of goods
+
 	if (command == "manual") {
+		// Com is the flag for ending the grocerry input
 		string com;
-		string name,time, price, count, total;
-		input_an_item(name, time, price, count);
-		total = name + ' ' + time + ' ' + price + ' ' + count;
-		istringstream info_string(total);
+		// Name is good's name, t is time for checking of each item, price, count is how many items do the customer have.
+		string name, t, price, count, total;
+		// Aquire the information from user.
+		input_an_item(name, t, price, count);
+		total = name + ' ' + t + ' ' + price + ' ' + count;
+		// Initialise the istringstream object with the total which is 4 words
+		istringstream info_string (total);
 		info_string_vec.push_back(info_string);
+		// Continue to get more goods' info or not
 		cout << "Wanna continue?" << endl << "'yes' / 'no' ? : ";
 		cin >> com;
+
 		while (com != "no") {
-			input_an_item(name, time, price, count);
-			total = name + ' ' + time + ' ' + price + ' ' + count;
-			istringstream info_string(total);
+
+			input_an_item(name, t, price, count);
+			total = name + ' ' + t + ' ' + price + ' ' + count;
+
+			istringstream info_string (total);
 			info_string_vec.push_back(info_string);
+
 			cout << "Wanna continue?" << endl << "'yes' / 'no' ? : ";
 			cin >> com;
 		}
-
-
+		cout << "Input is being processed..." << endl;
 	}
 	else if (command == "file") {
 
+		// Input the filename
 		string filename;
 		cout << "Please input the filename containing information of one customer: ";
 		cin >> filename;
+		// Try to open the file
 		ifstream fin;
 		fin.open(filename.c_str());
-		if (fin.fail()) {
-			cout << "NameError" << endl << "Please input again: ";
+		// If the file can not be opened
+		while (fin.fail()) {
+			cout << "Sorry, NameError!" << endl << "Please input filename again: ";
 			cin >> filename;
-			while (fin.fail()) {
-				cout << "NameError" << endl << "Please input again: ";
-				cin >> filename;
-				fin.open(filename.c_str());
-			}
+			fin.open(filename.c_str());		
 		}
-
+		// Fin is successfully loaded:
 		string info;
 		while (getline(fin, info)) {
 			istringstream info_string (info);
 			info_string_vec.push_back(info_string);
 		}
+		cout << "Successfully loaded the file and customer's info is being processed..." << endl;
 	}
 
+	if (info_string_vec.empty()) {
+		cout << "Error, customer cannot be initialised with the information given, please check again!" << endl;
+		return;
+	}
+	// Initialising a new customer with the info_string_vec
 	customer new_customer;
 	new_customer.read(info_string_vec);
-
+	// Add the new customer into the existing vector of customers
 	customer_vec.push_back(new_customer);
-	// else
-	//  cout << "Please inpput correctly: "
-
-
+	// Return a success message to user screen
+	cout << "Customer successfully initialised! Thank you!" << endl;
 }
 
 void print_logo ()
@@ -136,7 +156,8 @@ void print_logo ()
 
 }
 
-void print_man () {
+void print_man () 
+{
 	cout.setf (ios::left);
 	cout << "----------------------------------------------------" << endl;
 	cout << '|' << setw(15) << "Command" << '|' << setw(35) << "Function" << '|' << endl;
@@ -149,7 +170,8 @@ void print_man () {
 	cout << endl << endl;
 }
 
-void print_env (int max_counter, int customer_cnt, double cost, double time_limit) {
+void print_env (int max_counter, int customer_cnt, double cost, double time_limit) 
+{
 	cout.setf (ios::left);
 	cout << "****************************************************" << endl;
 	cout << "****************************************************" << endl;
@@ -163,7 +185,8 @@ void print_env (int max_counter, int customer_cnt, double cost, double time_limi
 	cout << endl << endl;
 }
 
-void update_env (int &max_counter, int &customer_cnt, double &cost, double &time_limit) {
+void update_env (int &max_counter, int &customer_cnt, double &cost, double &time_limit)
+{
 	cout << "Type in the value you want to set: " << endl;
 	cout << "====================================================" << endl;
 	cout << "(int)max_counter" << '[' <<  max_counter << "]: ";
@@ -184,7 +207,8 @@ void update_env (int &max_counter, int &customer_cnt, double &cost, double &time
 
 }
 
-void print_result (int best_no_of_counter, double revenue) {
+void print_result (int best_no_of_counter, double revenue) 
+{
 	cout << endl << endl << endl;
 	cout << "PROCESSING... ..." << endl;
 	cout << endl << endl << endl;
