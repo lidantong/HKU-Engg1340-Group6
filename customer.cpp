@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include <sstream>
 #include "grocery.h"
 #include "customer.h"
 
@@ -13,9 +13,10 @@ class customer
     
     string name;
     double time;
-    grocery *item;
+    vector<grocery> items_vec;
 
     public:
+    void read(vector<istringstream>);
     friend bool cmp(const customer *&a, const customer *&b);
     customer();
 };
@@ -24,10 +25,19 @@ customer :: customer()
 {
     name.clear();
     time = 0;
-    item = NULL;
+    items_vec = {};
 }
 
 bool cmp(const customer *&a, const customer *&b)
 {
     return a->time < b->time;
+}
+
+void customer::read (vector<istringstream> info_string_vec) {
+    vector<grocery> items;
+    for (auto &info_string: info_string_vec) {
+        grocery item(&info_string);
+        items.push_back(item);
+    }
+    items_vec = items;
 }

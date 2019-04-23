@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <string>
 #include <vector>
 #include "customer.h"
@@ -18,11 +20,7 @@ float h(float x, float z) {
 	return 0.0f;
 }
 
-void add_a_customer (vector<customer>) {
-	// customer new_customer();
-	string name;
-	double time, price;
-
+void input_an_item (string &name, string &time, string &price, string &count) {
 	cout << "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" << endl << endl;
 
 	cout << "Please type in the information of the grocerry good: " << endl << endl;
@@ -44,15 +42,81 @@ void add_a_customer (vector<customer>) {
 	cin >> price;
 	cout << endl << endl;
 
+	cout << "=> The number of this kind of item: ";
+	cin >> count;
+	cout << endl << endl;
+
 	cout << "Perfect, information is processed." << endl << endl;
 	cout << "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" << endl << endl;
 
 }
 
+void add_a_customer (vector<customer> customer_vec) {
+	// customer new_customer();
+	vector<istringstream> info_string_vec;
+	cout << "How would you like to initialise a new customer ?" << endl;
+	cout << "'manual' / 'file' ? : ";
+
+	string command;
+	cin >> command;
+	if (command == "manual") {
+		string com;
+		string name,time, price, count, total;
+		input_an_item(name, time, price, count);
+		total = name + ' ' + time + ' ' + price + ' ' + count;
+		istringstream info_string(total);
+		info_string_vec.push_back(info_string);
+		cout << "Wanna continue?" << endl << "'yes' / 'no' ? : ";
+		cin >> com;
+		while (com != "no") {
+			input_an_item(name, time, price, count);
+			total = name + ' ' + time + ' ' + price + ' ' + count;
+			istringstream info_string(total);
+			info_string_vec.push_back(info_string);
+			cout << "Wanna continue?" << endl << "'yes' / 'no' ? : ";
+			cin >> com;
+		}
+
+
+	}
+	else if (command == "file") {
+
+		string filename;
+		cout << "Please input the filename containing information of one customer: ";
+		cin >> filename;
+		ifstream fin;
+		fin.open(filename.c_str());
+		if (fin.fail()) {
+			cout << "NameError" << endl << "Please input again: ";
+			cin >> filename;
+			while (fin.fail()) {
+				cout << "NameError" << endl << "Please input again: ";
+				cin >> filename;
+				fin.open(filename.c_str());
+			}
+		}
+
+		string info;
+		while (getline(fin, info)) {
+			istringstream info_string (info);
+			info_string_vec.push_back(info_string);
+		}
+	}
+
+	customer new_customer;
+	new_customer.read(info_string_vec);
+
+	customer_vec.push_back(new_customer);
+	// else
+	//  cout << "Please inpput correctly: "
+
+
+}
+
 void print_logo ()
 {
-	for (float z = 1.5f; z > -1.5f; z -= 0.05f) 
-  {
+	for (float z = 1.5f; z > -1.5f; z -= 0.05f)
+	{
 		for (float x = -1.5f; x < 1.5f; x += 0.025f) {
 			float v = f(x, 0.0f, z);
 			if (v <= 0.0f) {

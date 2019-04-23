@@ -1,5 +1,6 @@
 #include "grocery.h"
 #include <iostream>
+#include <sstream>
 #include <string>
 
 using namespace std;
@@ -35,14 +36,16 @@ cnt: number of groceries purchased
 Initializing grocery
 
 ***************************************************/
-
-    grocery();
+    grocery(istringstream *info_string);
 };
 
 
-grocery :: grocery()
+grocery :: grocery(istringstream *info_string)
 {
     cnt = 0;
     t = val = 0;
     name.clear();
+    *info_string >> name >> val >> t >> cnt;
+
 }
+
