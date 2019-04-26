@@ -23,7 +23,7 @@ class customer
 
     public:
         
-        void read (string);
+        void read (string  info_string_vec);
         friend bool operator < (const customer &a, const customer &b);
         friend double process(double time_limit, int counter_cnt, int customer_cnt, vector <customer> c);
         customer();
