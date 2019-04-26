@@ -17,19 +17,19 @@ using namespace std;
 
 class customer
 {
-	private:
+private:
 
-		string name;
-		double t;
-		double val;
-		vector <grocery> items;
+string name;
+double t;
+double val;
+vector <grocery> items;
 
-	public:
+public:
 
-		void read(vector <istringstream>);
-		friend bool operator < (const customer &a, const customer &b);
-		friend double process(double time_limit, int counter_cnt, int customer_cnt, vector <customer> c);
-		customer();
+void read (vector <istringstream> & info_string_vec);
+friend bool operator < (const customer &a, const customer &b);
+friend double process(double time_limit, int counter_cnt, int customer_cnt, vector <customer> c);
+customer();
 };
 
 #endif

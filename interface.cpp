@@ -55,10 +55,12 @@ void input_an_item (string &name, string &t, string &price, string &count)
 
 }
 
-void add_a_customer (vector<customer> customer_vec) 
+void add_a_customer (vector<customer> &customer_vec) 
 {
 	// customer new_customer();
-	vector<istringstream> info_string_vec;
+
+	// vector<istringstream> info_string_vec;
+	string info_string_total;
 	cout << "How would you like to initialise a new customer ?" << endl;
 	cout << "'manual' / 'file' ? : ";
 
@@ -75,10 +77,13 @@ void add_a_customer (vector<customer> customer_vec)
 		string name, t, price, count, total;
 		// Aquire the information from user.
 		input_an_item(name, t, price, count);
-		total = name + ' ' + t + ' ' + price + ' ' + count;
+		total = name + ' ' + t + ' ' + price + ' ' + count + ' ';
+
 		// Initialise the istringstream object with the total which is 4 words
-		istringstream info_string (total);
-		info_string_vec.push_back(info_string);
+		// istringstream info_string (total);
+		// info_string_vec.push_back(info_string);
+		info_string_total += total;
+
 		// Continue to get more goods' info or not
 		cout << "Wanna continue?" << endl << "'yes' / 'no' ? : ";
 		cin >> com;
@@ -86,16 +91,18 @@ void add_a_customer (vector<customer> customer_vec)
 		while (com != "no") {
 
 			input_an_item(name, t, price, count);
-			total = name + ' ' + t + ' ' + price + ' ' + count;
+			total = name + ' ' + t + ' ' + price + ' ' + count + ' ';
 
-			istringstream info_string (total);
-			info_string_vec.push_back(info_string);
+			// istringstream info_string (total);
+			// info_string_vec.push_back(info_string);
+			info_string_total += total;
 
 			cout << "Wanna continue?" << endl << "'yes' / 'no' ? : ";
 			cin >> com;
 		}
 		cout << "Input is being processed..." << endl;
 	}
+
 	else if (command == "file") {
 
 		// Input the filename
@@ -124,6 +131,7 @@ void add_a_customer (vector<customer> customer_vec)
 		cout << "Error, customer cannot be initialised with the information given, please check again!" << endl;
 		return;
 	}
+
 	// Initialising a new customer with the info_string_vec
 	customer new_customer;
 	new_customer.read(info_string_vec);

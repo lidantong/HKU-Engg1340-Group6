@@ -19,7 +19,7 @@ bool operator < (const customer &a, const customer &b)
 	return a.t < b.t;
 }
 
-void customer::read (vector <istringstream> info_string_vec)
+void customer::read (vector <istringstream> & info_string_vec)
 {
 	// Use the istringstream vector to initialise list of grocery object and build the items vector of a customer
 	for (auto &info_string: info_string_vec) {
