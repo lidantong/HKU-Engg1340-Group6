@@ -1,5 +1,6 @@
 #include "customer.h"
 #include "calculate.h"
+#include "test.h"
 
 #include <algorithm>
 #include <queue>
@@ -10,15 +11,20 @@ priority_queue <customer> pq;
 
 pair <int, double> get_max(int max_counter, double counter_cost, double time_limit, int customer_cnt, const vector <customer> &c)
 {
-    pair <int, double> ans(0, 1e-18);
-    for (int i = 0; i < max_counter; i++)
-    {
+//	print(c);
+	pair <int, double> ans(0, -1e-18);
+	int mn = min(max_counter, int(c.size()));
+	for (int i = 0; i < mn; i++)
+    	{
         //calculate answer for each counter and update final answer
         double tmp = process(time_limit, i, customer_cnt, c) - counter_cost * i;
-        if (tmp > ans.second)
-            ans.first = i,
-            ans.second = tmp;
-    }
+//	cout << i << " " << tmp <<  endl;
+	if (tmp > ans.second)
+       	 {
+	  	  ans.first = i,
+        	    ans.second = tmp;
+	}
+	}
     return ans;
 }
 
@@ -39,11 +45,12 @@ double process(double time_limit, int counter_cnt, int customer_cnt, vector <cus
         pq.pop();
         // current time equals to the time last customer takes
         time_lable = x.t;
-        ans += x.val;
+	if (time_lable <= time_limit)
+		ans += x.val;
         //add a new customer to the counter if applicable
         if (lable < max_lable)
         {
-            c[lable].t = time_lable;
+            c[lable].t += time_lable;
             pq.push(c[lable++]);
         }
     }

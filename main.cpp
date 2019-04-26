@@ -20,7 +20,7 @@ int main()
 	cin >> man;
     // Initialising the environment
     int max_counter = 50, customer_cnt = 0;
-    double cost = 20, time_limit = 900;
+    double cost = 5, time_limit = 500;
     // Creating the customer vector which is temporarily empty
     vector<customer> cus;
     // Keep adding new customers till

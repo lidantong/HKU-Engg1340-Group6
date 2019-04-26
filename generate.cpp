@@ -9,7 +9,7 @@ vector <string> generate(int cnt)
     vector <string> ans;
     for (int i = 0; i < cnt; i++)
     {
-        ans.push_back(generate_name(rand() % name_len + 1));
+        ans.push_back(generate_name(rand() % name_len + 1) + ".txt");
         generate_customer(ans[i]);
     }
     return ans;
@@ -25,14 +25,14 @@ string generate_name(int len)
 
 void generate_customer(string filename)
 {
-    ofstream fout((filename + ".txt").c_str());
-    int cnt = rand() % 50 + 1;
+    ofstream fout(filename.c_str());
+    int cnt = rand() % 10 + 1;
     for (int i = 0; i < cnt; i++)
     {
         fout << generate_name(rand() % name_len + 1) << " ";
-        fout << rand() % 1000 / 100 << " ";
-        fout << rand() % 1000 / 100 << " ";
-        fout << rand() % 100 << endl;
+        fout << rand() % 1000 / 100.0 << " ";
+        fout << rand() % 1000 / 100.0 << " ";
+        fout << rand() % 10 << endl;
     }
     fout.close();
 }

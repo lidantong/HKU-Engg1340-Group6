@@ -10,13 +10,13 @@ using namespace std;
 customer :: customer()
 {
 	name.clear();
-	t = 0;
+	val = t = 0;
 	items = {};
 }
 
 bool operator < (const customer &a, const customer &b)
 {
-	return a.t < b.t;
+	return a.t > b.t;
 }
 
 void customer::read (string info_string_total)
