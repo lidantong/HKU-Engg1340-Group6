@@ -4,7 +4,7 @@
 #include <utility>
 #include "interface.h"
 #include "calculate.h"
-
+#include "generate.h"
 #include <stdio.h>
 
 
@@ -36,7 +36,9 @@ int main()
             cout << "*********************GENERATE RANDOM CUSTOMERS************************" << endl;
             cout << "How many random customers do you want to generate?" << endl;
             cout << "(int)Your number : ";
-            cin >> customer_cnt; 
+            cin >> customer_cnt;
+            vector<string> names = generate(customer_cnt);
+            autofill(cus, names);
         }
 		else cout << "Please input correctly!" << endl << endl; 
 
