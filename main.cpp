@@ -6,7 +6,7 @@
 #include "calculate.h"
 #include "generate.h"
 #include <stdio.h>
-
+using namespace std;
 
 int main()
 {
@@ -39,6 +39,11 @@ int main()
             cin >> customer_cnt;
             vector<string> names = generate(customer_cnt);
             autofill(cus, names);
+        }
+        else if (man == "EXIT") {
+            cout << endl << endl << "Thank you for your use, see you!" << endl << endl;
+            print_logo();
+            exit(0);
         }
 		else cout << "Please input correctly!" << endl << endl; 
 

@@ -188,6 +188,8 @@ void print_man ()
 	cout << "----------------------------------------------------" << endl;
 	cout << '|' << setw(15) << "TEST" << '|' << setw(35) << "Generate random customers to test." << '|' << endl;
 	cout << "----------------------------------------------------" << endl;
+	cout << '|' << setw(15) << "EXIT" << '|' << setw(35) << "Exit the programme." << '|' << endl;
+	cout << "----------------------------------------------------" << endl;
 	cout << '|' << setw(15) << "DONE" << '|' << setw(35) << "Finished input of customers." << '|' << endl;
 	cout << "----------------------------------------------------" << endl;
 	cout.unsetf(ios::left);
@@ -238,7 +240,7 @@ void print_result (int best_no_of_counter, double revenue)
 	cout << endl << endl << endl;
 	cout << "To get the best profit" << endl;
 	cout << "The number of counter should be: " << best_no_of_counter << endl;
-	cout << "The best revenue youcan get is: " << revenue << endl;
+	cout << "The best revenue you can get is: " << revenue << endl;
 	cout << endl << endl;
 	cout << "Thank you for using !" << endl;
 }
@@ -258,12 +260,11 @@ void autofill (vector<customer> &customer_vec, vector<string> names)
 			// info_string_vec.push_back(info_string);
 			info_string_total += (info + ' ');
 		}
-			customer new_customer;
-			new_customer.read(info_string_total);
-			// Add the new customer into the existing vector of customers
-			customer_vec.push_back(new_customer);
-			// Return a success message to user screen
-			cout << "Customer successfully initialised! Thank you!" << endl;
+		customer new_customer;
+		new_customer.read(info_string_total);
+		// Add the new customer into the existing vector of customers
+		customer_vec.push_back(new_customer);
+		// Return a success message to user screen
+		cout << "Customer successfully initialised! Thank you!" << endl;
 	}
-	print_man();
 }
