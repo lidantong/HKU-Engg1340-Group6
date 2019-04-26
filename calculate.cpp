@@ -10,7 +10,7 @@ priority_queue <customer> pq;
 
 pair <int, double> get_max(int max_counter, double counter_cost, double time_limit, int customer_cnt, const vector <customer> &c)
 {
-    pair <int, double> ans(-1e18, 0);
+    pair <int, double> ans(0, 1e-18);
     for (int i = 0; i < max_counter; i++)
     {
         //calculate answer for each counter and update final answer
@@ -32,7 +32,7 @@ double process(double time_limit, int counter_cnt, int customer_cnt, vector <cus
         pq.push(c[i]);
     double time_lable = 0, ans = 0;
     int lable = counter_cnt, max_lable = c.size();;
-    while (time_lable <= time_limit )
+    while (!pq.empty() && time_lable <= time_limit )
     {
         // the customer which takes least time finished his or her purchase
         customer x = pq.top();
