@@ -26,7 +26,9 @@ vector <grocery> items;
 
 public:
 
-void read (vector <istringstream> & info_string_vec);
+// void read (vector <istringstream> & info_string_vec);
+void read (string);
+
 friend bool operator < (const customer &a, const customer &b);
 friend double process(double time_limit, int counter_cnt, int customer_cnt, vector <customer> c);
 customer();
