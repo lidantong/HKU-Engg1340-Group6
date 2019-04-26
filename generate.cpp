@@ -1,15 +1,18 @@
 #include "generate.h"
-#include <time.h>
-#include <string>
 
 const int name_len = 10;
 
-void generate(int cnt)
+vector <string> generate(int cnt)
 {
     srand(time(NULL));
     rand();
-    string filename = generate_name(rand() % name_len + 1);
-    generate_customer(filename);
+    vector <string> ans;
+    for (int i = 0; i < cnt; i++)
+    {
+        ans.push_back(generate_name(rand() % name_len + 1));
+        generate_customer(ans[i]);
+    }
+    return ans;
 }
 
 string generate_name(int len)

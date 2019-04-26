@@ -7,11 +7,12 @@
 
 #include <string>
 #include <fstream>
+#include <vector>
 #include <algorithm>
 
 using namespace std;
 
-void generate(int cnt);
+vector <string> generate(int cnt);
 
 string generate_name(int len);
 
