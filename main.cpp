@@ -42,6 +42,7 @@ int main()
         }
 		else cout << "Please input correctly!" << endl << endl; 
 
+        print_man();
         cout << "Your next input: ";
         cin >> man;
 	}
@@ -67,6 +68,5 @@ int main()
     pair<int, double> result = get_max(max_counter, cost, time_limit, customer_cnt, cus);
 
     print_result(result.first, result.second);
-    exit(0);
 }
 

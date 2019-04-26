@@ -14,6 +14,6 @@ void print_man ();
 void print_env (int, int, double, double);
 void update_env (int &, int &, double &, double &);
 void print_result (int, double);
-void autofill (vector<customer>, vector<string>);
+void autofill (vector<customer> &, vector<string>);
 
 #endif
