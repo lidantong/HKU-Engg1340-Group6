@@ -188,7 +188,7 @@ void print_man ()
 	cout << "----------------------------------------------------" << endl;
 	cout << '|' << setw(15) << "TEST" << '|' << setw(35) << "Generate random customers to test." << '|' << endl;
 	cout << "----------------------------------------------------" << endl;
-	cout << '|' << setw(15) << "Done" << '|' << setw(35) << "Finished input of customers." << '|' << endl;
+	cout << '|' << setw(15) << "DONE" << '|' << setw(35) << "Finished input of customers." << '|' << endl;
 	cout << "----------------------------------------------------" << endl;
 	cout.unsetf(ios::left);
 	cout << endl << endl;
@@ -242,15 +242,15 @@ void print_result (int best_no_of_counter, double revenue)
 	cout << endl << endl;
 	cout << "Thank you for using !" << endl;
 }
-void autofill (vector<customer> customer_vec, vector<string> names)
+void autofill (vector<customer> &customer_vec, vector<string> names)
 {
 	string info_string_total;
 	for (string filename: names) {
 		ifstream fin;
 		fin.open(filename.c_str());
-// If the file can not be opened
+		// If the file can not be opened
 
-// Fin is successfully loaded:
+		// Fin is successfully loaded:
 		string info;
 		while (getline(fin, info)) {
 
@@ -260,10 +260,10 @@ void autofill (vector<customer> customer_vec, vector<string> names)
 		}
 			customer new_customer;
 			new_customer.read(info_string_total);
-// Add the new customer into the existing vector of customers
+			// Add the new customer into the existing vector of customers
 			customer_vec.push_back(new_customer);
-// Return a success message to user screen
+			// Return a success message to user screen
 			cout << "Customer successfully initialised! Thank you!" << endl;
-		}
 	}
+	print_man();
 }
