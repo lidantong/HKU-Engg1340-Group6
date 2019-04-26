@@ -32,6 +32,12 @@ int main()
             customer_cnt += 1;
             print_man();
         }
+        else if (man == "TEST") {
+            cout << "*********************GENERATE RANDOM CUSTOMERS************************" << endl;
+            cout << "How many random customers do you want to generate?" << endl;
+            cout << "(int)Your number : ";
+            cin >> customer_cnt; 
+        }
 		else cout << "Please input correctly!" << endl << endl; 
 
         cout << "Your next input: ";

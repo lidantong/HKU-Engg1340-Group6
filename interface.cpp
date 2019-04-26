@@ -9,13 +9,13 @@
 #include <iomanip>
 using namespace std;
 
-float f(float x, float y, float z) 
+float f(float x, float y, float z)
 {
 	float a = x * x + 9.0f / 4.0f * y * y + z * z - 1;
 	return a * a * a - x * x *z * z * z - 9.0f / 80.0f * y *y *z * z * z;
 }
 
-float h(float x, float z) 
+float h(float x, float z)
 {
 	for (float y = 1.0f; y >= 0.0f; y-=0.001f)
 		if (f(x, y, z) <= 0.0f)
@@ -23,7 +23,7 @@ float h(float x, float z)
 	return 0.0f;
 }
 
-void input_an_item (string &name, string &t, string &price, string &count) 
+void input_an_item (string &name, string &t, string &price, string &count)
 {
 	cout << "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" << endl << endl;
 
@@ -55,7 +55,7 @@ void input_an_item (string &name, string &t, string &price, string &count)
 
 }
 
-void add_a_customer (vector<customer> &customer_vec) 
+void add_a_customer (vector<customer> &customer_vec)
 {
 	// customer new_customer();
 
@@ -105,6 +105,16 @@ void add_a_customer (vector<customer> &customer_vec)
 
 	else if (command == "file") {
 
+		cout << "Do you want to randomly generate some customers?" << endl;
+		cout << "'yes' / 'no' ? :";
+		string autoinput;
+		cin >> autoinput;
+		// if (autoinput == "yes") {
+		//  string customer_number;
+		//  cin >> customer_number;
+
+		// }
+
 		// Input the filename
 		string filename;
 		cout << "Please input the filename containing information of one customer: ";
@@ -116,7 +126,7 @@ void add_a_customer (vector<customer> &customer_vec)
 		while (fin.fail()) {
 			cout << "Sorry, NameError!" << endl << "Please input filename again: ";
 			cin >> filename;
-			fin.open(filename.c_str());		
+			fin.open(filename.c_str());
 		}
 		// Fin is successfully loaded:
 		string info;
@@ -127,6 +137,7 @@ void add_a_customer (vector<customer> &customer_vec)
 			info_string_total += (info + ' ');
 
 		}
+
 		cout << "Successfully loaded the file and customer's info is being processed..." << endl;
 	}
 
@@ -167,7 +178,7 @@ void print_logo ()
 
 }
 
-void print_man () 
+void print_man ()
 {
 	cout.setf (ios::left);
 	cout << "----------------------------------------------------" << endl;
@@ -175,13 +186,15 @@ void print_man ()
 	cout << "----------------------------------------------------" << endl;
 	cout << '|' << setw(15) << "ADD" << '|' << setw(35) << "Add a customer into the line." << '|' << endl;
 	cout << "----------------------------------------------------" << endl;
+	cout << '|' << setw(15) << "TEST" << '|' << setw(35) << "Generate random customers to test." << '|' << endl;
+	cout << "----------------------------------------------------" << endl;
 	cout << '|' << setw(15) << "Done" << '|' << setw(35) << "Finished input of customers." << '|' << endl;
 	cout << "----------------------------------------------------" << endl;
 	cout.unsetf(ios::left);
 	cout << endl << endl;
 }
 
-void print_env (int max_counter, int customer_cnt, double cost, double time_limit) 
+void print_env (int max_counter, int customer_cnt, double cost, double time_limit)
 {
 	cout.setf (ios::left);
 	cout << "****************************************************" << endl;
@@ -218,7 +231,7 @@ void update_env (int &max_counter, int &customer_cnt, double &cost, double &time
 
 }
 
-void print_result (int best_no_of_counter, double revenue) 
+void print_result (int best_no_of_counter, double revenue)
 {
 	cout << endl << endl << endl;
 	cout << "PROCESSING... ..." << endl;
