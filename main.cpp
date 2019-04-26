@@ -30,6 +30,7 @@ int main()
             cout << "*********************ADDING A NEW CUSTOMER************************" << endl;
             add_a_customer(cus);
             customer_cnt += 1;
+            print_man();
         }
 		else cout << "Please input correctly!" << endl << endl; 
 

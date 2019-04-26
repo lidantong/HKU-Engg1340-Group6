@@ -121,20 +121,23 @@ void add_a_customer (vector<customer> &customer_vec)
 		// Fin is successfully loaded:
 		string info;
 		while (getline(fin, info)) {
-			istringstream info_string (info);
-			info_string_vec.push_back(info_string);
+
+			// istringstream info_string (info);
+			// info_string_vec.push_back(info_string);
+			info_string_total += (info + ' ');
+
 		}
 		cout << "Successfully loaded the file and customer's info is being processed..." << endl;
 	}
 
-	if (info_string_vec.empty()) {
+	if (info_string_total.empty()) {
 		cout << "Error, customer cannot be initialised with the information given, please check again!" << endl;
 		return;
 	}
 
 	// Initialising a new customer with the info_string_vec
 	customer new_customer;
-	new_customer.read(info_string_vec);
+	new_customer.read(info_string_total);
 	// Add the new customer into the existing vector of customers
 	customer_vec.push_back(new_customer);
 	// Return a success message to user screen
