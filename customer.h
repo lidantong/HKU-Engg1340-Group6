@@ -2,9 +2,6 @@
 
 #define CUSTOMER_H
 
-class customer;
-bool cmp(const customer *&a, const customer *&b);
-
 // /////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
@@ -17,21 +14,19 @@ using namespace std;
 
 class customer
 {
-private:
+    private:
 
-string name;
-double t;
-double val;
-vector <grocery> items;
+        string name;
+        double t;
+        double val;
+        vector <grocery> items;
 
-public:
-
-// void read (vector <istringstream> & info_string_vec);
-void read (string);
-
-friend bool operator < (const customer &a, const customer &b);
-friend double process(double time_limit, int counter_cnt, int customer_cnt, vector <customer> c);
-customer();
+    public:
+        
+        void read (vector <istringstream> & info_string_vec);
+        friend bool operator < (const customer &a, const customer &b);
+        friend double process(double time_limit, int counter_cnt, int customer_cnt, vector <customer> c);
+        customer();
 };
 
 #endif
