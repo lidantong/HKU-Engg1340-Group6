@@ -1,0 +1,6 @@
+ADD
+FILE
+Testcases/info_one_customer.txt
+DONE
+YES
+NO

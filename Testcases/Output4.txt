@@ -1,0 +1,16 @@
+Environment is all set, we are processing...
+
+
+
+PROCESSING... ...
+
+
+
+To get the best profit
+
+The number of counter should be: 49
+
+The best revenue you can get is: 20257.1
+
+
+Thank you for using !
