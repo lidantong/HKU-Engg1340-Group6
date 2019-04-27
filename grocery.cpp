@@ -15,6 +15,6 @@ grocery :: grocery()
 
 grocery :: grocery(istringstream *p_info_string)
 {
-	*p_info_string >> name >> val >> t >> cnt;
+	*p_info_string >> name >> t >> val >> cnt;
 }
 
