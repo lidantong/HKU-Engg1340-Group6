@@ -14,3 +14,7 @@ main.o:main.cpp generate.cpp generate.h
 	g++ -pedantic-errors -std=c++11 -g -c main.cpp
 grocery_store:calculate.o customer.o grocery.o interface.o main.o generate.o test.o
 	g++ -pedantic-errors -std=c++11 test.o calculate.o customer.o grocery.o interface.o main.o generate.o -g -o grocery_store
+clean:
+	rm *.txt *.o grocery_store
+tar:
+	tar -czvf grocery.tgz *.cpp *.h
