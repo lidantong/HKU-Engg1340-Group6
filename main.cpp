@@ -12,17 +12,22 @@ int main()
 {
 	// Print our logo to the screen
 	print_logo();
+
 	// Print the manual page for the user's reference
 	print_man();
+
 	// Waiting for the user to input command
 	string man;
 	cout << "What would you like to do?" << endl << "Your input: ";
 	cin >> man;
+
 	// Initialising the environment
 	int max_counter = 50, customer_cnt = 0;
 	double cost = 5, time_limit = 500;
+
 	// Creating the customer vector which is temporarily empty
 	vector<customer> cus;
+
 	// Keep adding new customers till
 	while (man != "DONE") {
 		if (man == "ADD") {
@@ -51,6 +56,8 @@ int main()
 		cout << "Your next input: ";
 		cin >> man;
 	}
+
+
 	// Customer array is successfully initialised
 	cout << "Congratulations! Customer array is successfully initialised!" << endl;
 
@@ -68,12 +75,16 @@ int main()
 		cin >> update;
 	}
 
+	// All information needed is gathered
 	cout << endl << "Environment is all set, we are processing..." << endl;
 
+	// Calculation starting here:
 	pair<int, double> result = get_max(max_counter, cost, time_limit, customer_cnt, cus);
 
+	// Print the result to the screen 
 	print_result(result.first, result.second);
-
+	
+	// Clear the .txt files
 	string clear_or_not;
 	cout << "Would you like us help you delete all the information files (i.e. xxx.txt) ?" << endl;
 	cout << "'YES' / 'NO' ? : ";
@@ -82,6 +93,7 @@ int main()
 		cout << endl << endl << "Are you sure?" << endl;
 		cout <<  "'YES' / 'NO' ? : ";
         cin >> clear_or_not;
+				// Double check needed
         if (clear_or_not == "YES") {
             int return_value = clear();
             cout << endl << endl << "Cleared all the files with a suffix '.txt'! Thank you!" << endl << endl << endl;

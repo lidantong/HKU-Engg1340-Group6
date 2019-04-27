@@ -28,6 +28,7 @@ void customer::read (string info_string_total)
 		++count;
 		tem += (info + ' ');
 
+		// process the info string at a step of 4
 		if (count == 4) {
 			count = 0;
 			istringstream info_s (tem);
@@ -35,13 +36,8 @@ void customer::read (string info_string_total)
 			items.push_back(item);
 			tem = "";
 		}
+		
 	}
-	// Use the istringstream vector to initialise list of grocery object and build the items vector of a customer
-	
-	// for (auto &info_string: info_string_vec) {
-	// 	grocery item(&info_string);
-	// 	items.push_back(item);
-	// }
     for (vector <grocery> :: iterator i = items.begin(); i != items.end(); i++)
         t += i->t * i->cnt,
         val += i->val * i->cnt;
