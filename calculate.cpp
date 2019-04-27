@@ -13,8 +13,7 @@ pair <int, double> get_max(int max_counter, double counter_cost, double time_lim
 {
 //	print(c);
 	pair <int, double> ans(0, -1e-18);
-	int mn = min(max_counter, int(c.size()));
-	for (int i = 0; i < mn; i++)
+	for (int i = 0; i < max_counter; i++)
     	{
         //calculate answer for each counter and update final answer
         double tmp = process(time_limit, i, customer_cnt, c) - counter_cost * i;
@@ -33,8 +32,9 @@ double process(double time_limit, int counter_cnt, int customer_cnt, vector <cus
     // clean the heap before each process
     while (!pq.empty())
         pq.pop();
+	int mn = min(counter_cnt, int(c.size()));
     // the size of the heap should be no lareger than counter_cnt
-    for (int i = 0; i < counter_cnt; i++)
+    for (int i = 0; i < mn; i++)
         pq.push(c[i]);
     double time_lable = 0, ans = 0;
     int lable = counter_cnt, max_lable = c.size();;
