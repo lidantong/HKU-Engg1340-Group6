@@ -8,7 +8,7 @@
 #include "grocery.h"
 using namespace std;
 
-void add_a_customer (vector<customer>&);
+bool add_a_customer (vector<customer>&);
 void print_logo ();
 void print_man ();
 void print_env (int, int, double, double);

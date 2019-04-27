@@ -56,7 +56,7 @@ void input_an_item (string &name, string &t, string &price, string &count)
 
 }
 
-void add_a_customer (vector<customer> &customer_vec)
+bool add_a_customer (vector<customer> &customer_vec)
 {
 	// customer new_customer();
 
@@ -144,7 +144,7 @@ void add_a_customer (vector<customer> &customer_vec)
 
 	if (info_string_total.empty()) {
 		cout << endl << "Error, customer cannot be initialised with the information given, please check again!" << endl << endl;
-		return;
+		return false;
 	}
 
 	// Initialising a new customer with the info_string_vec
@@ -154,6 +154,7 @@ void add_a_customer (vector<customer> &customer_vec)
 	customer_vec.push_back(new_customer);
 	// Return a success message to user screen
 	cout << "Customer successfully initialised! Thank you!" << endl << endl << endl;
+	return true;
 }
 
 void print_logo ()

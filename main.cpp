@@ -28,8 +28,8 @@ int main()
 		if (man == "ADD") {
 			//
 			cout << endl << "*********************ADDING A NEW CUSTOMER************************" << endl;
-			add_a_customer(cus);
-			customer_cnt += 1;
+			bool check = add_a_customer(cus);
+			customer_cnt += check;
 			// print_man();
 		}
 		else if (man == "TEST") {
