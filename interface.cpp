@@ -7,6 +7,7 @@
 #include <vector>
 #include "customer.h"
 #include <iomanip>
+#include <cstdlib>
 using namespace std;
 
 float f(float x, float y, float z)
@@ -61,8 +62,8 @@ void add_a_customer (vector<customer> &customer_vec)
 
 	// vector<istringstream> info_string_vec;
 	string info_string_total;
-	cout << "How would you like to initialise a new customer ?" << endl;
-	cout << "'manual' / 'file' ? : ";
+	cout << endl << "How would you like to initialise a new customer ?" << endl << endl;
+	cout << "'MANUAL' / 'FILE' ? : ";
 
 	// Flag of sources: manual or file
 	string command;
@@ -70,7 +71,7 @@ void add_a_customer (vector<customer> &customer_vec)
 
 	// After getting the flag of the source, the following branch produces a well-prepared istringstream vector of goods
 
-	if (command == "manual") {
+	if (command == "MANUAL") {
 		// Com is the flag for ending the grocerry input
 		string com;
 		// Name is good's name, t is time for checking of each item, price, count is how many items do the customer have.
@@ -85,10 +86,10 @@ void add_a_customer (vector<customer> &customer_vec)
 		info_string_total += total;
 
 		// Continue to get more goods' info or not
-		cout << "Wanna continue?" << endl << "'yes' / 'no' ? : ";
+		cout << "Wanna continue?" << endl << "'YES' / 'NO' ? : ";
 		cin >> com;
 
-		while (com != "no") {
+		while (com != "NO") {
 
 			input_an_item(name, t, price, count);
 			total = name + ' ' + t + ' ' + price + ' ' + count + ' ';
@@ -97,18 +98,18 @@ void add_a_customer (vector<customer> &customer_vec)
 			// info_string_vec.push_back(info_string);
 			info_string_total += total;
 
-			cout << "Wanna continue?" << endl << "'yes' / 'no' ? : ";
+			cout << "Wanna continue?" << endl << "'YES' / 'NO' ? : ";
 			cin >> com;
 		}
-		cout << "Input is being processed..." << endl;
+		cout << endl << "Input is being processed..." << endl << endl;
 	}
 
-	else if (command == "file") {
+	else if (command == "FILE") {
 
-		cout << "Do you want to randomly generate some customers?" << endl;
-		cout << "'yes' / 'no' ? :";
-		string autoinput;
-		cin >> autoinput;
+		// cout << "Do you want to randomly generate some customers?" << endl;
+		// cout << "'yes' / 'no' ? :";
+		// string autoinput;
+		// cin >> autoinput;
 		// if (autoinput == "yes") {
 		//  string customer_number;
 		//  cin >> customer_number;
@@ -117,7 +118,7 @@ void add_a_customer (vector<customer> &customer_vec)
 
 		// Input the filename
 		string filename;
-		cout << "Please input the filename containing information of one customer: ";
+		cout << endl << "Please input the filename containing information of one customer: ";
 		cin >> filename;
 		// Try to open the file
 		ifstream fin;
@@ -138,11 +139,11 @@ void add_a_customer (vector<customer> &customer_vec)
 
 		}
 
-		cout << "Successfully loaded the file and customer's info is being processed..." << endl;
+		cout << endl << endl << "Successfully loaded the file and customer's info is being processed..." << endl << endl << endl;
 	}
 
 	if (info_string_total.empty()) {
-		cout << "Error, customer cannot be initialised with the information given, please check again!" << endl;
+		cout << endl << "Error, customer cannot be initialised with the information given, please check again!" << endl << endl;
 		return;
 	}
 
@@ -152,7 +153,7 @@ void add_a_customer (vector<customer> &customer_vec)
 	// Add the new customer into the existing vector of customers
 	customer_vec.push_back(new_customer);
 	// Return a success message to user screen
-	cout << "Customer successfully initialised! Thank you!" << endl;
+	cout << "Customer successfully initialised! Thank you!" << endl << endl << endl;
 }
 
 void print_logo ()
@@ -201,10 +202,10 @@ void print_env (int max_counter, int customer_cnt, double cost, double time_limi
 	cout.setf (ios::left);
 	cout << "****************************************************" << endl;
 	cout << "****************************************************" << endl;
-	cout << "***      " << setw(15) << "Max_counter: " << setw(25) << max_counter << "***" << endl;
-	cout << "***      " << setw(15) << "Customer_cnt: " << setw(25) << customer_cnt << "***" << endl;
-	cout << "***      " << setw(15) << "Cost: " << setw(25) << cost << "***" << endl;
-	cout << "***      " << setw(15) << "Time_limit: " << setw(25) << time_limit << "***" << endl;
+	cout << "***      " << setw(20) << "Max_counter: " << setw(20) << max_counter << "***" << endl;
+	cout << "***      " << setw(20) << "Customer_cnt: " << setw(20) << customer_cnt << "***" << endl;
+	cout << "***      " << setw(20) << "Cost_per_cashier: " << setw(20) << cost << "***" << endl;
+	cout << "***      " << setw(20) << "Time_limit: " << setw(20) << time_limit << "***" << endl;
 	cout.unsetf(ios::left);
 	cout << "****************************************************" << endl;
 	cout << "****************************************************" << endl;
@@ -219,9 +220,9 @@ void update_env (int &max_counter, int &customer_cnt, double &cost, double &time
 	cin >> max_counter;
 	cout << "====================================================" << endl;
 
-	cout << "(int)customer_cnt" << '[' <<  customer_cnt << "]: ";
-	cin >> customer_cnt;
-	cout << "====================================================" << endl;
+	// cout << "(int)customer_cnt" << '[' <<  customer_cnt << "]: ";
+	// cin >> customer_cnt;
+	// cout << "====================================================" << endl;
 
 	cout << "(double)cost" << '[' <<  cost << "]: ";
 	cin >> cost;
@@ -238,11 +239,11 @@ void print_result (int best_no_of_counter, double revenue)
 	cout << endl << endl << endl;
 	cout << "PROCESSING... ..." << endl;
 	cout << endl << endl << endl;
-	cout << "To get the best profit" << endl;
-	cout << "The number of counter should be: " << best_no_of_counter << endl;
+	cout << "To get the best profit" << endl << endl;
+	cout << "The number of counter should be: " << best_no_of_counter << endl << endl;
 	cout << "The best revenue you can get is: " << revenue << endl;
 	cout << endl << endl;
-	cout << "Thank you for using !" << endl;
+	cout << "Thank you for using !" << endl << endl << endl;
 }
 void autofill (vector<customer> &customer_vec, vector<string> names)
 {
@@ -267,4 +268,8 @@ void autofill (vector<customer> &customer_vec, vector<string> names)
 		// Return a success message to user screen
 		cout << "Customer successfully initialised! Thank you!" << endl;
 	}
+}
+
+int clear() {
+	return system("rm -rf *.txt");
 }
