@@ -140,6 +140,7 @@ bool add_a_customer (vector<customer> &customer_vec)
 		}
 
 		cout << endl << endl << "Successfully loaded the file and customer's info is being processed..." << endl << endl << endl;
+		fin.close();
 	}
 
 	if (info_string_total.empty()) {
@@ -268,6 +269,7 @@ void autofill (vector<customer> &customer_vec, vector<string> names)
 		customer_vec.push_back(new_customer);
 		// Return a success message to user screen
 		cout << "Customer successfully initialised! Thank you!" << endl;
+		fin.close();
 	}
 }
 
