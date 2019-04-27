@@ -2,7 +2,7 @@ HKU-Engg1340-Group6
 -------------------
 
 ![](https://img.shields.io/github/release/lidantong/HKU-Engg1340-Group6.svg)
-![](http://progressed.io/bar/15?title=completed)
+![](http://progressed.io/bar/100?title=completed)
 ![](https://img.shields.io/badge/Language-C%2B%2B11-green.svg)
 
 
