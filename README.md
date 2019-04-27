@@ -34,14 +34,17 @@ Installation :black_square_button:
 - Clone this repo to your local folder
   ```bash
   git clone https://github.com/lidantong/HKU-Engg1340-Group6.git
+  ✨🍰✨
   ```
 - Enter the git directory and build your programme
   ```bash
   make grocery_store
+  ✨🍰✨
   ```
 - Execute the programme
   ```bash
   ./grocery_store
+  ✨🍰✨
   ```
 Satisfaction guaranteed!
 
@@ -76,6 +79,7 @@ Sample IO
 
 ```bash
 ./grocary_store < Input?.txt # '?' is in {1, 2, 3, 4}
+✨🍰✨
 ```
 
 [Detailes in here](Testcases/)
