@@ -22,7 +22,7 @@ class grocery
 
       grocery();
       grocery(istringstream *p_info_string);
-
+	friend void generate_customer(string);
 };
 
 // /////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,4 +1,5 @@
 #include "generate.h"
+#include "grocery.h"
 
 const int name_len = 10;
 
@@ -27,12 +28,21 @@ void generate_customer(string filename)
 {
     ofstream fout(filename.c_str());
     int cnt = rand() % 10 + 1;
+    grocery *g = new grocery[cnt]();
     for (int i = 0; i < cnt; i++)
     {
-        fout << generate_name(rand() % name_len + 1) << " ";
-        fout << rand() % 1000 / 100.0 << " ";
-        fout << rand() % 1000 / 100.0 << " ";
-        fout << rand() % 10 << endl;
+        g[i].name = generate_name(rand() % name_len + 1);
+        g[i].t =  rand() % 1000 / 100.0;
+        g[i].val = rand() % 1000 / 100.0;
+        g[i].cnt =  rand() % 10;
     }
-    fout.close();
+    for (int i = 0; i < cnt; i++)
+    {
+    	fout << g[i].name << " ";
+	fout << g[i].t << " ";
+	fout << g[i].val << " ";
+	fout << g[i].cnt << endl;
+	}
+	delete[] g;
+	fout.close();
 }
