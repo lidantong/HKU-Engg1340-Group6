@@ -31,7 +31,6 @@ The project is capable of the following features: (to be continued)
 4. To get a maximum number of cashiers from standard input. (fewer than the default number: 50)
 5. To calculate the optimized plan and revenue of different numbers of cashier open within the given maximum waiting time
 6. To output the detailed plan, including numbers of the cashier, total with maximum revenue to the screen for the client's reference.
-7. To give the client an option to save the file.
 
 Authors:eyes:
 ----------
